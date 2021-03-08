@@ -15,7 +15,7 @@ Generate a TS config file:
 
     tsc --init
 
-Create src folder and a index.ts file.
+Create a src folder and an index.ts file with the following content:
 
 ```javascript
 import express from 'express';
@@ -29,10 +29,10 @@ app.listen(3000, () => {
 });
 ```
 
-Create start script:
+Create a start script inside package.json file:
 `"start": "ts-node-dev src/index.ts"`
     
-Create Dockerfile:
+Create a Dockerfile:
 ```dockerfile
 FROM node:alpine
 
@@ -45,10 +45,16 @@ CMD ["npm", "start"]
 ```
 
 Create a .dockerignore file to avoid loading up node_modules into the container when it's built.
-Build image:
+
+```
+node_modules
+```
+
+Build an image:
 
     docker build -t dockerID/auth .
-Create infra folder in the root directory and inside create k8s folder.
+Create infra folder in the root directory and create k8s folder inside.
+
 Create an auth deployment file with deployment and service configuration (default service type is ClusterIP):
 
 ```yaml
