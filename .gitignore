@@ -1,3 +1,4 @@
 .DS_Store
 
-documentation
+# Auth Service
+auth/node_modules
