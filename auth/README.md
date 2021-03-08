@@ -44,7 +44,7 @@ COPY . .
 CMD ["npm", "start"]
 ```
 
-Create a .dockerignore file to avoid loading up node_modules into the container when it's built.
+Create a .dockerignore file with the following content (to avoid loading up node_modules into the container when it's built).
 
 ```
 node_modules
