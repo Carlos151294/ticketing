@@ -23,10 +23,32 @@ First project steps:
   * Create Dockerfile
   * Create a .dockerignore file to avoid loading up node_modules into the container when it's built.
   * Build image
-  
+
     docker build -t dockerID/name .
   * Create infra folder and inside create k8s folder
   * Create an auth deployment file with deployment and service configuration (default service type is ClusterIP)
+  * Create skaffold config file in the root directory to watch any k8s file changes and apply them to the cluster. Also watch any auth code changes and sync with the appropriate running container inside of the cluster.
+
+  ```
+  apiVersion: skaffold/v2
+  kind: Config
+  deploy:
+    kubectl:
+      manifests:
+        - ./infra/k8s/*
+  build:
+    local:
+      push: false
+    artifacts:
+      - image: carlosfn224/auth
+        context: auth
+        docker:
+          dockerfile: dockerfile
+        sync:
+          manual:
+            - src: 'src/**/*.ts'
+              dest: .
+  ```
 #### Dependencies Dictionary
 * **ts-node-dev**
 
