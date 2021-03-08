@@ -20,7 +20,12 @@ First project steps:
   * Create src folder and a index.ts file
   * Create scripts:
     + start (starts the app in dev mode)
-
+  * Create Dockerfile
+  * Create a .dockerignore file to avoid loading up node_modules into the container when it's built.
+  * Build image
+    docker build -t dockerID/name .
+  * Create infra folder and inside create k8s folder
+  * Create an auth deployment file with deployment and service configuration (default service type is ClusterIP)
 #### Dependencies Dictionary
 * **ts-node-dev**
 
