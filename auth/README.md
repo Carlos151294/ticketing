@@ -29,7 +29,7 @@ First project steps:
   * Create an auth deployment file with deployment and service configuration (default service type is ClusterIP)
   * Create skaffold config file in the root directory to watch any k8s file changes and apply them to the cluster. Also watch any auth code changes and sync with the appropriate running container inside of the cluster.
 
-  ```
+  ```yaml
   apiVersion: skaffold/v2
   kind: Config
   deploy:
