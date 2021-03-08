@@ -11,13 +11,13 @@ Install initial dependencies
 
     npm i typescript ts-node-dev express @types/express
 
-Generate TS config
+Generate a TS config file
 
     tsc --init
 
-First project steps
+First project steps:
 
-  * Create src folder and index.ts file
+  * Create src folder and a index.ts file
   * Create scripts:
 
     + start (starts the app in dev mode)
