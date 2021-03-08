@@ -1,16 +1,19 @@
 
 ### Run the project
-npm start
+    npm start
 
 #### Initial Setup
 1. Creade a package.json file
+
     npm init -y
 
 2. Install initial dependencies
+
     npm i typescript ts-node-dev express @types/express
 
 3. Generate TS config
-tsc --init
+
+    tsc --init
 
 4. First project steps
 
