@@ -13,8 +13,10 @@ npm start
 tsc --init
 
 4. First project steps
+
   * Create src folder and index.ts file
   * Create scripts
+  
     + start (starts the app in dev mode)
 
 ##### Dependencies Dictionary
