@@ -23,6 +23,7 @@ First project steps:
   * Create Dockerfile
   * Create a .dockerignore file to avoid loading up node_modules into the container when it's built.
   * Build image
+  
     docker build -t dockerID/name .
   * Create infra folder and inside create k8s folder
   * Create an auth deployment file with deployment and service configuration (default service type is ClusterIP)
