@@ -16,10 +16,10 @@ tsc --init
 
   * Create src folder and index.ts file
   * Create scripts
-  
+
     + start (starts the app in dev mode)
 
 ##### Dependencies Dictionary
-* ts-node-dev
+* **ts-node-dev**
 
   It restarts target node process when any of required files changes but shares Typescript compilation process between restarts. This significantly increases speed of restarting comparing to nodemon -x ts-node... variations because there is no need to instantiate ts-node compilation each time.
