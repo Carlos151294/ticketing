@@ -106,7 +106,7 @@ build:
     - image: carlosfn224/auth
       context: auth
       docker:
-        dockerfile: dockerfile
+        dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.ts'
