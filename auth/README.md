@@ -8,15 +8,17 @@ Creade a package.json file
     npm init -y
 
 Install initial dependencies
+
     npm i typescript ts-node-dev express @types/express
 
 Generate TS config
+
     tsc --init
 
 First project steps
 
   * Create src folder and index.ts file
-  * Create scripts
+  * Create scripts:
 
     + start (starts the app in dev mode)
 
