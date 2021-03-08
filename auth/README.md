@@ -93,7 +93,7 @@ spec:
 Create skaffold config file in the root directory to watch any k8s file changes and apply them to the cluster. Also to watch any /auth/src code changes and sync them with the appropriate running container inside of the cluster.
 
 ```yaml
-apiVersion: skaffold/v2
+apiVersion: skaffold/v2alpha3
 kind: Config
 deploy:
   kubectl:
