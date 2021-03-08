@@ -53,7 +53,7 @@ node_modules
 Build an image:
 
     docker build -t dockerID/auth .
-Create infra folder in the root directory and create k8s folder inside.
+Create an infra folder in the root directory and create a k8s folder inside.
 
 Create an auth deployment file with deployment and service configuration (default service type is ClusterIP):
 
