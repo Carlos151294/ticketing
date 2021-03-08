@@ -22,11 +22,44 @@ First project steps:
     + start (starts the app in dev mode)
   * Create Dockerfile
   * Create a .dockerignore file to avoid loading up node_modules into the container when it's built.
-  * Build image
+  * Build image:
 
-    `docker build -t dockerID/name .`
-  * Create infra folder and inside create k8s folder
+    `docker build -t dockerID/auth .`
+  * Create infra folder in the root directory and inside create k8s folder
   * Create an auth deployment file with deployment and service configuration (default service type is ClusterIP)
+
+  ```yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata: 
+    name: auth-deployment
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: auth
+    template:
+      metadata: 
+        labels: 
+          app: auth
+      spec:
+        containers:
+          - name: auth
+            image: carlosfn224/auth
+  ---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: auth-service
+  spec:
+    selector:
+      app: auth
+    ports:
+      - name: auth
+        protocol: TCP
+        port: 3000
+        targetPort: 3000
+  ```
   * Create skaffold config file in the root directory to watch any k8s file changes and apply them to the cluster. Also watch any auth code changes and sync with the appropriate running container inside of the cluster.
 
   ```yaml
