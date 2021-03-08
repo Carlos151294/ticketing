@@ -19,7 +19,6 @@ First project steps:
 
   * Create src folder and a index.ts file
   * Create scripts:
-
     + start (starts the app in dev mode)
 
 #### Dependencies Dictionary
