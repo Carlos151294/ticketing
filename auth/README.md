@@ -24,6 +24,10 @@ import { json } from 'body-parser';
 const app = express();
 app.use(json());
 
+app.get('/api/users/currentuser', (req, res) => {
+  res.send('Hi there!');
+});
+
 app.listen(3000, () => {
   console.log('Listening on port 3000');
 });
@@ -112,6 +116,31 @@ build:
           - src: 'src/**/*.ts'
             dest: .
 ```
+
+Create an Ingress Service to route traffic to the auth service so we can test an initial endpoint for /api/users/currentuser.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: ticketing.dev
+      http:
+        paths:
+          - path: /api/users/?(.*)
+            pathType: Prefix
+            backend: 
+              service:
+                name: auth-service
+                port: 
+                  number: 3000
+```
+
 #### Dependencies Dictionary
 * **ts-node-dev**
 
