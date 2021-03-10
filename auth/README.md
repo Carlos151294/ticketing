@@ -145,3 +145,11 @@ spec:
 * **ts-node-dev**
 
   It restarts target node process when any of required files changes but shares Typescript compilation process between restarts. This significantly increases speed of restarting comparing to nodemon -x ts-node... variations because there is no need to instantiate ts-node compilation each time.
+
+* **express-validator**
+
+  It is a set of express.js middlewares that wraps validator.js validator and sanitizer functions.
+
+* **express-async-errors**
+
+  A dead simple ES6 async/await support hack for ExpressJS. This makes express to handle async errors easily.
