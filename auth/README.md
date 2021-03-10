@@ -140,6 +140,8 @@ spec:
                 port: 
                   number: 3000
 ```
+Edit your hosts file to map the traffic from localhost to ticketing.dev.
+If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 
 #### Dependencies Dictionary
 * **ts-node-dev**
