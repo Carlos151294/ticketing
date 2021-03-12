@@ -155,3 +155,7 @@ If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 * **express-async-errors**
 
   A dead simple ES6 async/await support hack for ExpressJS. This makes express to handle async errors easily.
+
+* **mongoose**
+
+  Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose is a tool to get access to MongoDB and work with data inside of it.
