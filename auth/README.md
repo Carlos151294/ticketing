@@ -159,3 +159,13 @@ If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 * **mongoose**
 
   Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose is a tool to get access to MongoDB and work with data inside of it.
+
+* **cookie-session**
+
+  Simple cookie-based session middleware. Used to create and destroy sessions.
+  A user session can be stored in two main ways with cookies: on the server or on the client. This module stores the session data on the client within a cookie, while a module like express-session stores only a session identifier on the client within a cookie and stores the session data on the server, typically in a database.
+  Used to create and destroy sessions.
+
+* **jsonwebtoken**
+
+  An implementation of JSON Web Tokens. Used to create JWTs (sign tokens) and verify they're valid.
