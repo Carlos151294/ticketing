@@ -39,7 +39,7 @@ router.post('/api/users/signup',
       email: user.email
     }, process.env.JWT_SECRET_KEY!);
 
-    // Store it on session
+    // Store it on session, in Set-Cookie response header
     req.session = {
       jwt: userJwt
     }; 

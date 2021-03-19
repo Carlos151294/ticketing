@@ -144,6 +144,14 @@ Edit your hosts file to map the traffic from localhost to ticketing.dev.
 If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 
 #### Dependencies Dictionary
+* **express**
+
+  .
+
+* **typescript**
+
+  .
+
 * **ts-node-dev**
 
   It restarts target node process when any of required files changes but shares Typescript compilation process between restarts. This significantly increases speed of restarting comparing to nodemon -x ts-node... variations because there is no need to instantiate ts-node compilation each time.
@@ -169,3 +177,21 @@ If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 * **jsonwebtoken**
 
   An implementation of JSON Web Tokens. Used to create JWTs (sign tokens) and verify they're valid.
+
+##### Dev Dependencies 
+
+* **jest**
+
+  Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+
+* **ts-jest**
+
+  A TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.
+
+* **supertest**
+
+  SuperTest is used to make fake HTTP requests to our express app.
+
+* **mongodb-memory-server**
+
+  This package spins up an actual/real MongoDB server programmatically from node, for testing or mocking during development. By default it holds the data in memory. A fresh spun up mongod process takes about 7Mb of memory. The server will allow you to connect your favorite ODM or client library to the MongoDB server and run integration tests isolated from each other..
