@@ -2,3 +2,7 @@
 
 # Auth Service
 auth/node_modules
+
+# React Client NextJS App
+client/node_modules
+client/.next
