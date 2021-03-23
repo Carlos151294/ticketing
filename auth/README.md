@@ -145,12 +145,12 @@ If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 
 #### Dependencies Dictionary
 * **express**
-
-  .
+  
+  Fast, unopinionated, minimalist web framework for node.
 
 * **typescript**
 
-  .
+  TypeScript is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript compiles to readable, standards-based JavaScript.
 
 * **ts-node-dev**
 
