@@ -143,6 +143,10 @@ spec:
 Edit your hosts file to map the traffic from localhost to ticketing.dev.
 If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
 
+If you want to update a package, for example @cfntickets/common, run the command:
+
+    npm update @cfntickets/common
+
 #### Dependencies Dictionary
 * **express**
   

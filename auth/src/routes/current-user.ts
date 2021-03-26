@@ -1,5 +1,5 @@
 import express from 'express';
-import { currentUserHandler } from '../middlewares/current-user-handler';
+import { currentUserHandler } from '@cfntickets/common';
 
 const router = express.Router();
 
