@@ -7,7 +7,7 @@ const start = async () => {
   if (!process.env.JWT_SECRET_KEY) {
     throw new Error('JWT_SECRET_KEY must be defined');
   }
-  
+
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
   }
