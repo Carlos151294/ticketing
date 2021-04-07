@@ -1,6 +1,6 @@
 
-### Run the project
-    npm start
+## Run the project
+    npm run publish
 
 #### Initial Setup
 Create a package.json file:
@@ -23,142 +23,28 @@ Create following scripts inside package.json:
 {
   ...
   "scripts": {
-    "publish": "ts-node-dev --notify false src/publisher.ts",
-    "listen": "ts-node-dev --notify false src/listener.ts"
+    "publish": "ts-node-dev --rs --notify false src/publisher.ts",
+    "listen": "ts-node-dev --rs --notify false src/listener.ts"
   }
 }
 ```
-
+Write following content inside publisher.ts file:
 
 ```javascript
-import express from 'express';
-import { json } from 'body-parser';
+import nats from 'node-nats-streaming';
 
-const app = express();
-app.use(json());
-
-app.get('/api/users/currentuser', (req, res) => {
-  res.send('Hi there!');
+const stan = nats.connect('ticketing', 'abc', {
+  url: 'http://localhost:4222'
 });
 
-app.listen(3000, () => {
-  console.log('Listening on port 3000');
+stan.on('connect', () => {
+  console.log('Publisher connected to NATS');
 });
 ```
 
-Create a start script inside package.json file:
-`"start": "ts-node-dev src/index.ts"`
-    
-Create a Dockerfile:
-```dockerfile
-FROM node:alpine
+To be able to connect the Nats Test project to the NATS Streaming Server running inside the cluster, run this commnad to expose the port of a pod (deployment):
 
-WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-
-CMD ["npm", "start"]
-```
-
-Create a .dockerignore file with the following content (to avoid loading up node_modules into the container when it's built).
-
-```
-node_modules
-```
-
-Build an image:
-
-    docker build -t dockerID/auth .
-Create an infra folder in the root directory and create a k8s folder inside.
-
-Create an auth deployment file with deployment and service configuration (default service type is ClusterIP):
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: auth-deployment
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: auth
-  template:
-    metadata: 
-      labels: 
-        app: auth
-    spec:
-      containers:
-        - name: auth
-          image: carlosfn224/auth
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: auth-service
-spec:
-  selector:
-    app: auth
-  ports:
-    - name: auth
-      protocol: TCP
-      port: 3000
-      targetPort: 3000
-```
-
-Create skaffold config file in the root directory to watch any k8s file changes and apply them to the cluster. Also to watch any /auth/src code changes and sync them with the appropriate running container inside of the cluster.
-
-```yaml
-apiVersion: skaffold/v2alpha3
-kind: Config
-deploy:
-  kubectl:
-    manifests:
-      - ./infra/k8s/*
-build:
-  local:
-    push: false
-  artifacts:
-    - image: carlosfn224/auth
-      context: auth
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.ts'
-            dest: .
-```
-
-Create an Ingress Service to route traffic to the auth service so we can test an initial endpoint for /api/users/currentuser.
-
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-service
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/use-regex: 'true'
-spec:
-  rules:
-    - host: ticketing.dev
-      http:
-        paths:
-          - path: /api/users/?(.*)
-            pathType: Prefix
-            backend: 
-              service:
-                name: auth-service
-                port: 
-                  number: 3000
-```
-Edit your hosts file to map the traffic from localhost to ticketing.dev.
-If you see the HTTPS chrome warning, type inside the browser "thisisunsafe".
-
-If you want to update a package, for example @cfntickets/common, run the command:
-
-    npm update @cfntickets/common
+    kubectl port-forward nats-deployment-64dc7cfd69-d8dvw 4222:4222
 
 #### Dependencies Dictionary
 * **node-nats-streaming**
