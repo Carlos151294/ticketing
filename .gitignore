@@ -9,3 +9,6 @@ tickets/node_modules
 # React Client NextJS App
 client/node_modules
 client/.next
+
+# Nats Test Project
+nats-test/node_modules
