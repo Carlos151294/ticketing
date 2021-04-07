@@ -13,7 +13,7 @@ Run publisher:
 
     npm run publish
 
-Run publisher:
+Run listener:
 
     npm run listen
 
