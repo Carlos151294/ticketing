@@ -36,7 +36,6 @@ Create following scripts inside package.json:
 
 ```json
 {
-  ...
   "scripts": {
     "publish": "ts-node-dev --rs --notify false src/publisher.ts",
     "listen": "ts-node-dev --rs --notify false src/listener.ts"
@@ -64,7 +63,9 @@ To be able to connect the Nats Test project to the NATS Streaming Server running
 #### NATS Streaming Docs
 
 [NATS Streaming Server Official Docs](https://docs.nats.io/)
+
 [NATS Streaming Docker Image](https://hub.docker.com/_/nats-streaming)
+
 [NATS Streaming NPM Package](https://www.npmjs.com/package/node-nats-streaming)
 
 #### Dependencies Dictionary
