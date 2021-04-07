@@ -1,6 +1,10 @@
 
 ## Run the project
 
+Run Kubernetes  Cluster with Skaffold:
+
+    skaffold dev
+
 Expose nats deployment pod:
 
     kubectl port-forward nats-deployment-64dc7cfd69-d8dvw 4222:4222
