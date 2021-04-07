@@ -4,7 +4,10 @@ import cookieSession from 'cookie-session';
 import 'express-async-errors';
 import { errorHandler, NotFoundError, currentUserHandler } from '@cfntickets/common';
 
-import { createTicketRouter } from './routes/__test__/new';
+import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
+import { indexTicketRouter } from './routes';
+import { updateTicketRouter } from './routes/update';
 
 const app = express();
 app.set('trust proxy', true);
@@ -18,6 +21,9 @@ app.use(currentUserHandler);
 
 // Routers
 app.use(createTicketRouter);
+app.use(showTicketRouter);
+app.use(indexTicketRouter);
+app.use(updateTicketRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();

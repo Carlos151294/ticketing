@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-
 import { requireAuthHandler, validationHandler } from '@cfntickets/common';
-import { Ticket } from '../../models/ticket';
+
+import { Ticket } from '../models/ticket';
 
 const router = express.Router();
 
