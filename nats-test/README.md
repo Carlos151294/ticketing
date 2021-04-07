@@ -1,6 +1,17 @@
 
 ## Run the project
+
+Expose nats deployment pod:
+
+    kubectl port-forward nats-deployment-64dc7cfd69-d8dvw 4222:4222
+
+Run publisher:
+
     npm run publish
+
+Run publisher:
+
+    npm run listen
 
 #### Initial Setup
 Create a package.json file:
