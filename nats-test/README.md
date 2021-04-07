@@ -46,6 +46,12 @@ To be able to connect the Nats Test project to the NATS Streaming Server running
 
     kubectl port-forward nats-deployment-64dc7cfd69-d8dvw 4222:4222
 
+#### NATS Streaming Docs
+
+[NATS Streaming Server Official Docs](https://docs.nats.io/)
+[NATS Streaming Docker Image](https://hub.docker.com/_/nats-streaming)
+[NATS Streaming NPM Package](https://www.npmjs.com/package/node-nats-streaming)
+
 #### Dependencies Dictionary
 * **node-nats-streaming**
   NATS Streaming Server is an extremely performant, lightweight reliable streaming platform powered by NATS.
