@@ -7,7 +7,7 @@ Run Kubernetes  Cluster with Skaffold:
 
 Expose nats deployment pod:
 
-    kubectl port-forward nats-deployment-64dc7cfd69-d8dvw 4222:4222
+    kubectl port-forward <deployment name> 4222:4222
 
 Run publisher:
 
