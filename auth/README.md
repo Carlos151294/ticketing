@@ -9,7 +9,7 @@ Create a package.json file:
 
 Install initial dependencies:
 
-    npm i typescript ts-node-dev express @types/express
+    npm i express body-parser typescript ts-node-dev @types/express
 
 Generate a TS config file:
 
